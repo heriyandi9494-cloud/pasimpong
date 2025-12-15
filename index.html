@@ -91,7 +91,7 @@ form{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
   overflow:auto;
   box-shadow:0 6px 28px rgba(0,0,0,0.35);
 }
-table{width:100%;min-width:720px;border-collapse:collapse}
+table{width:100%;min-width:780px;border-collapse:collapse}
 thead{
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(6px);
@@ -113,6 +113,7 @@ footer{text-align:center;margin-top:16px;font-size:12px;color:var(--muted);}
   <header>
     <h1>𝐓𝐀𝐁𝐔𝐍𝐆𝐀𝐍 𝐏𝐀𝐒𝐈𝐌𝐏𝐎𝐍𝐆</h1>
   </header>
+
 <!-- TEKS BERJALAN -->
 <div style="width:100%;overflow:hidden;background:rgba(0,0,0,0.1);border-radius:14px;margin-bottom:16px;">
   <div id="marquee" style="display:inline-block;white-space:nowrap;color:var(--accent2);font-weight:600;padding:8px 0;animation:marqueeAnim 15s linear infinite;">
@@ -127,46 +128,48 @@ footer{text-align:center;margin-top:16px;font-size:12px;color:var(--muted);}
 }
 </style>
 
-  <div class="card" id="dashboard" style="display:none;">
-    <div class="top-row" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:12px;">
-      <div class="stat">
-        <div class="label">𝐓𝐎𝐓𝐀𝐋 𝐒𝐀𝐋𝐃𝐎</div>
-        <div id="totalSaldo" class="value">Rp 0</div>
-      </div>
-      <div class="stat">
-        <div class="label">𝐉𝐮𝐦𝐥𝐚𝐡 𝐓𝐫𝐚𝐧𝐬𝐚𝐤𝐬𝐢</div>
-        <div id="countTx" class="value">0</div>
-      </div>
+<div class="card" id="dashboard" style="display:none;">
+  <div class="top-row" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:12px;">
+    <div class="stat">
+      <div class="label">𝐓𝐎𝐓𝐀𝐋 𝐒𝐀𝐋𝐃𝐎</div>
+      <div id="totalSaldo" class="value">Rp 0</div>
     </div>
-
-    <button id="hapusSemuaBtn" class="btn btn-red" type="button">𝐇𝐚𝐩𝐮𝐬 𝐒𝐞𝐦𝐮𝐚 𝐃𝐚𝐭𝐚</button>
-    <button id="btnLogout" class="btn btn-red" style="float:right;margin-top:-48px;">𝐋𝐨𝐠𝐨𝐮𝐭</button>
-
-    <form id="txForm" onsubmit="return false" style="margin-top:12px">
-      <input id="tanggal" class="input" type="date" required />
-      <input id="debit" class="input" type="number" placeholder="𝐃𝐞𝐛𝐢𝐭 (𝐤𝐮𝐫𝐚𝐧𝐠𝐢 𝐬𝐚𝐥𝐝𝐨)" step="0.01" min="0" />
-      <input id="credit" class="input" type="number" placeholder="𝐂𝐫𝐞𝐝𝐢𝐭 (𝐭𝐚𝐦𝐛𝐚𝐡 𝐬𝐚𝐥𝐝𝐨)" step="0.01" min="0" />
-      <button id="simpanBtn" class="btn btn-primary">𝐒𝐢𝐦𝐩𝐚𝐧</button>
-      <button id="clearBtn" class="btn">𝐁𝐞𝐫𝐬𝐢𝐡𝐤𝐚𝐧</button>
-    </form>
-
-    <div class="table-wrap">
-      <table aria-label="Tabel Transaksi" id="txTable">
-        <thead>
-          <tr>
-            <th>𝐍𝐨</th>
-            <th>𝐓𝐚𝐧𝐠𝐠𝐚𝐥</th>
-            <th class="number">𝐃𝐞𝐛𝐢𝐭</th>
-            <th class="number">𝐂𝐫𝐞𝐝𝐢𝐭</th>
-            <th class="number">𝐓𝐨𝐭𝐚𝐥 𝐒𝐚𝐥𝐝𝐨</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-          <tr><td colspan="5" class="empty">Memuat data...</td></tr>
-        </tbody>
-      </table>
+    <div class="stat">
+      <div class="label">𝐉𝐮𝐦𝐥𝐚𝐡 𝐓𝐫𝐚𝐧𝐬𝐚𝐤𝐬𝐢</div>
+      <div id="countTx" class="value">0</div>
     </div>
   </div>
+
+  <button id="hapusSemuaBtn" class="btn btn-red" type="button">𝐇𝐚𝐩𝐮𝐬 𝐒𝐞𝐦𝐮𝐚 𝐃𝐚𝐭𝐚</button>
+  <button id="btnLogout" class="btn btn-red" style="float:right;margin-top:-48px;">𝐋𝐨𝐠𝐨𝐮𝐭</button>
+
+  <form id="txForm" onsubmit="return false" style="margin-top:12px">
+    <input id="tanggal" class="input" type="date" required />
+    <input id="keterangan" class="input" type="text" placeholder="𝐊𝐞𝐭𝐞𝐫𝐚𝐧𝐠𝐚𝐧" />
+    <input id="debit" class="input" type="number" placeholder="𝐃𝐞𝐛𝐢𝐭 (𝐤𝐮𝐫𝐚𝐧𝐠𝐢 𝐬𝐚𝐥𝐝𝐨)" step="0.01" min="0" />
+    <input id="credit" class="input" type="number" placeholder="𝐂𝐫𝐞𝐝𝐢𝐭 (𝐭𝐚𝐦𝐛𝐚𝐡 𝐬𝐚𝐥𝐝𝐨)" step="0.01" min="0" />
+    <button id="simpanBtn" class="btn btn-primary">𝐒𝐢𝐦𝐩𝐚𝐧</button>
+    <button id="clearBtn" class="btn">𝐁𝐞𝐫𝐬𝐢𝐡𝐤𝐚𝐧</button>
+  </form>
+
+  <div class="table-wrap">
+    <table aria-label="Tabel Transaksi" id="txTable">
+      <thead>
+        <tr>
+          <th>𝐍𝐨</th>
+          <th>𝐓𝐚𝐧𝐠𝐠𝐚𝐥</th>
+          <th>𝐊𝐞𝐭𝐞𝐫𝐚𝐧𝐠𝐚𝐧</th>
+          <th class="number">𝐃𝐞𝐛𝐢𝐭</th>
+          <th class="number">𝐂𝐫𝐞𝐝𝐢𝐭</th>
+          <th class="number">𝐓𝐨𝐭𝐚𝐥 𝐒𝐚𝐥𝐝𝐨</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr><td colspan="6" class="empty">Memuat data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
 
 <!-- LOGIN SCREEN -->
@@ -212,6 +215,7 @@ const loginError = document.getElementById('loginError');
 const tanggalEl = document.getElementById('tanggal');
 const debitEl = document.getElementById('debit');
 const creditEl = document.getElementById('credit');
+const keteranganEl = document.getElementById('keterangan');
 const simpanBtn = document.getElementById('simpanBtn');
 const clearBtn = document.getElementById('clearBtn');
 const hapusSemuaBtn = document.getElementById('hapusSemuaBtn');
@@ -230,24 +234,32 @@ auth.onAuthStateChanged(user=>{
     dashboard.style.display='block';
     txRef = db.ref('transaksi/' + user.uid);
 
-    // Listener realtime
     txRef.on('value', snapshot=>{
       const val = snapshot.val()||{};
       const arr = [];
       for(const key in val) arr.push({key,...val[key]});
       arr.sort((a,b)=>a.createdAt-b.createdAt);
+
       if(arr.length===0){
-        tbody.innerHTML='<tr><td colspan="5" class="empty">Belum ada transaksi</td></tr>';
+        tbody.innerHTML='<tr><td colspan="6" class="empty">Belum ada transaksi</td></tr>';
         totalSaldoEl.textContent=formatRupiah(0);
         countTxEl.textContent='0';
         return;
       }
+
       let running=0;
       let rows='';
       arr.forEach((tx,idx)=>{
-        running+=(Number(tx.credit)||0)-(Number(tx.debit)||0);
+        running += (Number(tx.credit)||0) - (Number(tx.debit)||0);
         const dateStr = new Date(tx.tanggal).toLocaleDateString('id-ID');
-        rows+=`<tr data-key="${tx.key}"><td>${idx+1}</td><td>${dateStr}</td><td class="number">${formatRupiah(tx.debit)}</td><td class="number">${formatRupiah(tx.credit)}</td><td class="number">${formatRupiah(running)}</td></tr>`;
+        rows += `<tr data-key="${tx.key}">
+          <td>${idx+1}</td>
+          <td>${dateStr}</td>
+          <td>${tx.keterangan||''}</td>
+          <td class="number">${formatRupiah(tx.debit)}</td>
+          <td class="number">${formatRupiah(tx.credit)}</td>
+          <td class="number">${formatRupiah(running)}</td>
+        </tr>`;
       });
       tbody.innerHTML=rows;
       totalSaldoEl.textContent=formatRupiah(running);
@@ -288,14 +300,21 @@ simpanBtn.onclick=async ()=>{
   const tanggal = tanggalEl.value;
   const debit = Number(debitEl.value)||0;
   const credit = Number(creditEl.value)||0;
+  const keterangan = keteranganEl.value.trim();
   if(!tanggal){alert('Pilih tanggal transaksi');return;}
   if(debit===0 && credit===0){alert('Isi debit atau credit');return;}
-  await txRef.push({tanggal,debit:parseFloat(debit.toFixed(2)),credit:parseFloat(credit.toFixed(2)),createdAt:Date.now()});
-  tanggalEl.value=''; debitEl.value=''; creditEl.value='';
+  await txRef.push({
+    tanggal,
+    debit:parseFloat(debit.toFixed(2)),
+    credit:parseFloat(credit.toFixed(2)),
+    keterangan,
+    createdAt:Date.now()
+  });
+  tanggalEl.value=''; debitEl.value=''; creditEl.value=''; keteranganEl.value='';
 };
 
 // BERSIHKAN FORM
-clearBtn.onclick=()=>{tanggalEl.value=''; debitEl.value=''; creditEl.value='';};
+clearBtn.onclick=()=>{tanggalEl.value=''; debitEl.value=''; creditEl.value=''; keteranganEl.value='';};
 
 // HAPUS SEMUA
 hapusSemuaBtn.onclick=async ()=>{
